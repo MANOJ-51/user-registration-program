@@ -13,6 +13,8 @@ public class UserRegistration {
         System.out.println("Welcome to User Registration Program");
 
         firstNameValidation();   //calling firstnameValidation
+
+        lastNameValidation();    //calling lastnameValidation
     }
 
     //validating first name of user using regex
@@ -23,5 +25,15 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile(firstNameRegex);  //compiling
         Matcher matcher = pattern.matcher(firstName);       //matching
         System.out.println("First Name pattern matching : " + matcher.matches());    //printing
+    }
+
+    //validation of last name
+    public static void lastNameValidation(){
+        System.out.println("Enter the Last Name first letter should be capital");
+        String lastName =scanner.nextLine();
+        String lastNameRegex = "[A-z[a-z]]{3,}";
+        Pattern pattern = Pattern.compile(lastNameRegex);
+        Matcher matcher = pattern.matcher(lastName);
+        System.out.println("Last Name pattern matching : "+matcher.matches());
     }
 }
