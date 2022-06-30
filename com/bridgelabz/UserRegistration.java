@@ -67,7 +67,7 @@ public class UserRegistration {
     public static void userPasswordValidation() {
         System.out.println("Enter password Minimum 8 characters ");
         String userPassword = scanner.nextLine();
-        String userPasswordRegex = "^[\\w]{8,}$";
+        String userPasswordRegex = "^(?=.*[A-Z])[\\w]{8,}$";
         Pattern pattern = Pattern.compile(userPasswordRegex);
         Matcher matcher = pattern.matcher(userPassword);
         System.out.println("User Password is : " + matcher.matches());
