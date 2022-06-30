@@ -19,6 +19,8 @@ public class UserRegistration {
         userEmailValidation();   //calling userEmailValidation
 
         userMobileNumberValidation();  //calling userMobileNumberValidation
+
+        userPasswordValidation();    //calling userPasswordValidation
     }
 
     //validating first name of user using regex
@@ -59,5 +61,15 @@ public class UserRegistration {
         Pattern pattern = Pattern.compile(mobileNumberRegex);
         Matcher matcher = pattern.matcher(mobileNumber);
         System.out.println("User Mobile Number is : " + matcher.matches());
+    }
+
+    //user password validation
+    public static void userPasswordValidation() {
+        System.out.println("Enter password Minimum 8 characters ");
+        String userPassword = scanner.nextLine();
+        String userPasswordRegex = "^[\\w]{8,}$";
+        Pattern pattern = Pattern.compile(userPasswordRegex);
+        Matcher matcher = pattern.matcher(userPassword);
+        System.out.println("User Password is : " + matcher.matches());
     }
 }
