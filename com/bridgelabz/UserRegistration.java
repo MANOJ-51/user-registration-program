@@ -15,6 +15,8 @@ public class UserRegistration {
         firstNameValidation();   //calling firstnameValidation
 
         lastNameValidation();    //calling lastnameValidation
+
+        userEmailValidation();   //calling userEmailValidation
     }
 
     //validating first name of user using regex
@@ -28,12 +30,22 @@ public class UserRegistration {
     }
 
     //validation of last name
-    public static void lastNameValidation(){
+    public static void lastNameValidation() {
         System.out.println("Enter the Last Name first letter should be capital");
-        String lastName =scanner.nextLine();
+        String lastName = scanner.nextLine();
         String lastNameRegex = "[A-z[a-z]]{3,}";
         Pattern pattern = Pattern.compile(lastNameRegex);
         Matcher matcher = pattern.matcher(lastName);
-        System.out.println("Last Name pattern matching : "+matcher.matches());
+        System.out.println("Last Name pattern matching : " + matcher.matches());
+    }
+
+    //user email validation
+    public static void userEmailValidation() {
+        System.out.println("Enter the Email id ");
+        String userEmail = scanner.nextLine();
+        String userEmailRegex = "^[\\w]+[\\w[^@_$]]?[\\w]+?[@][\\w]+[.][\\w]+$";
+        Pattern pattern = Pattern.compile(userEmailRegex);
+        Matcher matcher = pattern.matcher(userEmail);
+        System.out.println("User Email Id is : " + matcher.matches());
     }
 }
