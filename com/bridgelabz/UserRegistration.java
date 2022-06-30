@@ -17,6 +17,8 @@ public class UserRegistration {
         lastNameValidation();    //calling lastnameValidation
 
         userEmailValidation();   //calling userEmailValidation
+
+        userMobileNumberValidation();  //calling userMobileNumberValidation
     }
 
     //validating first name of user using regex
@@ -43,9 +45,19 @@ public class UserRegistration {
     public static void userEmailValidation() {
         System.out.println("Enter the Email id ");
         String userEmail = scanner.nextLine();
-        String userEmailRegex = "^[\\w]+[\\w[^@_$]]?[\\w]+?[@][\\w]+[.][\\w]+$";
+        String userEmailRegex = "^[\\w]{3,}[\\W[^@_$]]?[\\w]+?[@][\\w]{3,10}[.][\\w]{3,6}[.]?[\\w]{3,10}?$";
         Pattern pattern = Pattern.compile(userEmailRegex);
         Matcher matcher = pattern.matcher(userEmail);
         System.out.println("User Email Id is : " + matcher.matches());
+    }
+
+    //user mobile number validation
+    public static void userMobileNumberValidation() {
+        System.out.println("Enter the Mobile number with country code");
+        String mobileNumber = scanner.nextLine();
+        String mobileNumberRegex = "^[+][\\d]{2}[\\s][\\d]{10}$";
+        Pattern pattern = Pattern.compile(mobileNumberRegex);
+        Matcher matcher = pattern.matcher(mobileNumber);
+        System.out.println("User Mobile Number is : " + matcher.matches());
     }
 }
