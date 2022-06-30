@@ -47,7 +47,7 @@ public class UserRegistration {
     public static void userEmailValidation() {
         System.out.println("Enter the Email id ");
         String userEmail = scanner.nextLine();
-        String userEmailRegex = "^[\\w]{3,}[\\W[^@_$]]?[\\w]+?[@][\\w]{3,10}[.][\\w]{3,6}[.]?[\\w]{3,10}?$";
+        String userEmailRegex = "^[\\w]{3,}[\\W[^@$]]?[\\w]+?[@][\\w]{3,10}[.][\\w]{3,6}[.]?[\\w]{3,10}?$"; //for all emails
         Pattern pattern = Pattern.compile(userEmailRegex);
         Matcher matcher = pattern.matcher(userEmail);
         System.out.println("User Email Id is : " + matcher.matches());
