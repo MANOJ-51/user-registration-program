@@ -1,12 +1,50 @@
 package com.bridgelabz;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(Parameterized.class)
 public class UserRegistrationTest {
-    private static UserRegistration userRegistration = new UserRegistration();
+    private UserRegistration userRegistration;
+    private String userEmail;
+    private boolean actualOutput;
 
+    public UserRegistrationTest(String userEmail, boolean actualOutput) {
+        this.userEmail = userEmail;
+        this.actualOutput = actualOutput;
+    }
+
+    @Parameterized.Parameters
+    public static Collection multipleEmailsTest() {
+        return Arrays.asList(new Object[][]{
+                {"abc@yahoo.com", true},
+                {"abc-100@yahoo.com", true},
+                {"abc.100@yahoo.com", true},
+                {"abc111@abc.com", true},
+                {"abc-100@abc.net", true},
+                {"abc.100@abc.com.au", true},
+                {"abc@1.com", true},
+                {"abc@gmail.com.com", true},
+                {"abc+100@gmail.com", true},
+                {"abc@gmail.com.aa.au", false},
+                {"abc@gmail.com.1a", false},
+                {"abc@abc@gmail.com", false},
+                {"abc.@gmail.com", false}
+        });
+    }
+
+    @Before
+    public void initialize() {
+        userRegistration = new UserRegistration();
+    }
 
     @Test
     public void givenFirstNameExpectedAsTrue() {
@@ -33,18 +71,6 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void givenUserEmailExpectedAsTrue() {
-        boolean actualoutput = userRegistration.userEmailValidation("m4anoj51@gmail.com");
-        assertEquals(true, actualoutput);
-    }
-
-    @Test
-    public void givenUserEmailExpectedAsFalse() {
-        boolean actualoutput = userRegistration.userEmailValidation("m4anoj51@.gmail.com");
-        assertEquals(false, actualoutput);
-    }
-
-    @Test
     public void givenMobileNumberExpectedAsTrue() {
         boolean actualOutput = userRegistration.userMobileNumberValidation("+91 8331880950");
         assertEquals(true, actualOutput);
@@ -54,6 +80,12 @@ public class UserRegistrationTest {
     public void givenMobileNumberExpectedAsFalse() {
         boolean actualOutput = userRegistration.userMobileNumberValidation("+918331880950");
         assertEquals(false, actualOutput);
+    }
+
+    @Test
+    public void enteredEmailsExpectedTests() {
+        System.out.println("The user Email Id is :" + userEmail);
+        assertEquals(actualOutput, userRegistration.userEmailValidation(userEmail));
     }
 
     @Test

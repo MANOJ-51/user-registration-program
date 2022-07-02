@@ -23,7 +23,7 @@ public class UserRegistration {
 
     //user email validation
     public static boolean userEmailValidation(String userEmail) {
-        String userEmailRegex = "^[\\w]+[\\W[^@_$]]?[\\w]+?[@][\\w]+[.][\\w]+[.]?[\\w]+?$";
+        String userEmailRegex = "^[\\w+-]+(\\.[\\w+-]+)*@[\\w]+(\\.[\\w]+)?(?=(\\.[A-Za-z_]{2,3}$|\\.[a-zA-Z]{2,3}$)).*$";
         Pattern pattern = Pattern.compile(userEmailRegex);
         Matcher matcher = pattern.matcher(userEmail);
         return matcher.matches();
