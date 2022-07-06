@@ -16,14 +16,14 @@ public class UserRegistrationTest {
 
     @Test
     public void givenFirstNameExpectedAsTrue() throws UserRegistrationException {
-        boolean actualOutput = userRegistration.firstNameValidation("Manoj");
+        boolean actualOutput = userRegistration.firstNameValidation.firstNameValidation("Manoj");
         assertEquals(true, actualOutput);
     }
 
     @Test
-    public void givenFirstNameExpectedAsFalse() throws UserRegistrationException {
+    public void givenFirstNameExpectedAsFalse() {
         try {
-            boolean actualOutput = userRegistration.firstNameValidation("manoj");
+            boolean actualOutput = userRegistration.firstNameValidation.firstNameValidation("manoj");
             assertEquals(false, actualOutput);
         } catch (UserRegistrationException userRegistrationException) {
             userRegistrationException.printStackTrace();
@@ -32,14 +32,14 @@ public class UserRegistrationTest {
 
     @Test
     public void givenLastNameExpectedAsTrue() throws UserRegistrationException {
-        boolean actualOutput = userRegistration.lastNameValidation("Pabbisetty");
+        boolean actualOutput = userRegistration.lastNameValidation.lastNameValidation("Pabbisetty");
         assertEquals(true, actualOutput);
     }
 
     @Test
-    public void givenLastNameExpectedAsFalse() throws UserRegistrationException {
+    public void givenLastNameExpectedAsFalse() {
         try {
-            boolean actualOutput = userRegistration.lastNameValidation("pabbisetty");
+            boolean actualOutput = userRegistration.lastNameValidation.lastNameValidation("pabbisetty");
             assertEquals(false, actualOutput);
         } catch (UserRegistrationException userRegistrationException) {
             userRegistrationException.printStackTrace();
@@ -48,14 +48,14 @@ public class UserRegistrationTest {
 
     @Test
     public void givenMobileNumberExpectedAsTrue() throws UserRegistrationException {
-        boolean actualOutput = userRegistration.userMobileNumberValidation("+91 8331880950");
+        boolean actualOutput = userRegistration.userMobileNumberValidation.userMobileNumberValidation("+91 8331880950");
         assertEquals(true, actualOutput);
     }
 
     @Test
-    public void givenMobileNumberExpectedAsFalse() throws UserRegistrationException {
+    public void givenMobileNumberExpectedAsFalse() {
         try {
-            boolean actualOutput = userRegistration.userMobileNumberValidation("+918331880950");
+            boolean actualOutput = userRegistration.userMobileNumberValidation.userMobileNumberValidation("+918331880950");
             assertEquals(false, actualOutput);
         } catch (UserRegistrationException userRegistrationException) {
             userRegistrationException.printStackTrace();
@@ -64,14 +64,14 @@ public class UserRegistrationTest {
 
     @Test
     public void enteredEmailsExpectedAsTrue() throws UserRegistrationException {
-        boolean actualOutput = userRegistration.userEmailValidation("manojP1@gmail.com");
+        boolean actualOutput = userRegistration.userEmailValidation.userEmailValidation("manojP1@gmail.com");
         assertEquals(true, actualOutput);
     }
 
     @Test
-    public void enteredEmailsExpectedAsFalse() throws UserRegistrationException {
+    public void enteredEmailsExpectedAsFalse() {
         try {
-            boolean actualOutput = userRegistration.userEmailValidation("manojP1.@.gmail.com");
+            boolean actualOutput = userRegistration.userEmailValidation.userEmailValidation("manojP1.@.gmail.com");
             assertEquals(false, actualOutput);
         } catch (UserRegistrationException userRegistrationException) {
             userRegistrationException.printStackTrace();
@@ -80,14 +80,14 @@ public class UserRegistrationTest {
 
     @Test
     public void givenPasswordExpectedAsTrue() throws UserRegistrationException {
-        boolean actualOutput = userRegistration.userPasswordValidation("Manoj@451");
+        boolean actualOutput = userRegistration.userPasswordValidation.userPasswordValidation("Manoj@451");
         assertEquals(true, actualOutput);
     }
 
     @Test
-    public void givenPasswordExpectedAsFalse() throws UserRegistrationException {
+    public void givenPasswordExpectedAsFalse() {
         try {
-            boolean actualOutput = userRegistration.userPasswordValidation("manoj451");
+            boolean actualOutput = userRegistration.userPasswordValidation.userPasswordValidation("manoj451");
             assertEquals(false, actualOutput);
         } catch (UserRegistrationException userRegistrationException) {
             userRegistrationException.printStackTrace();
